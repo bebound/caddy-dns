@@ -1,6 +1,5 @@
 #!/bin/bash
-#PLATFORMS=linux/amd64,linux/arm64
-PLATFORMS=linux/amd64
+PLATFORMS=linux/amd64,linux/arm64
 docker build . -t bebound/caddy_builder --platform $PLATFORMS  -f Dockerfile_builder --push
 
 build_with_dns(){
