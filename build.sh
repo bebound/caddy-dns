@@ -13,7 +13,7 @@ build_with_dns(){
     cd $name
     version=$(git describe --abbrev=0 --tags)
     cd ../
-    final_tag=bebound/caddy-$name:$caddy_version"_"$version
+    final_tag=bebound/caddy-$name:$version"_"$caddy_version
     final_tag_no_version=bebound/caddy-$name
     echo Current valid version is $final_tag
     docker manifest inspect $final_tag &> /dev/null
