@@ -6,7 +6,7 @@ docker build . -t bebound/caddy_builder --platform $PLATFORMS  -f Dockerfile_bui
 build_with_dns(){
     name=$1
     repo=github.com/caddy-dns/$name
-    caddy_version=$(docker run -it --rm bebound/caddy_builder ./caddy version | cut -d ' ' -f 1)
+    caddy_version=$(docker run -it --rm bebound/caddy_builder ./caddy version | cut -d ' ' -f 1 | | xargs)
     if [ ! -d $name ]; then
         git clone https://$repo
     fi
