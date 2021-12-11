@@ -1,5 +1,6 @@
 #!/bin/bash
-PLATFORMS=linux/amd64,linux/arm64
+#PLATFORMS=linux/amd64,linux/arm64
+PLATFORMS=linux/amd64
 docker build . -t bebound/xcaddy_builder --platform $PLATFORMS  -f Dockerfile_builder --push
 
 func build_dns(){
