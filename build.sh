@@ -1,10 +1,10 @@
 #!/bin/bash
 PLATFORMS=linux/arm64,linux/386,linux/arm64,linux/arm/v7
-docker build . -t caddy_builder --platform $PLATFORMS  -f Dockerfile_builder
+docker build . -t bebound/caddy_builder --platform $PLATFORMS  -f Dockerfile_builder --push
 
 name='dnspod'
 repo=github.com/caddy-dns/$name
-caddy_version=$(docker run -it --rm caddy_builder ./caddy version | cut -d ' ' -f 1)
+caddy_version=$(docker run -it --rm bebound/caddy_builder ./caddy version | cut -d ' ' -f 1)
 if [ ! -d $name ]; then
   git clone https://$repo
 fi
