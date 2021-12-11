@@ -3,7 +3,7 @@
 PLATFORMS=linux/amd64
 docker build . -t bebound/xcaddy_builder --platform $PLATFORMS  -f Dockerfile_builder --push
 
-func build_dns(){
+func build_with_dns(){
     name=$1
     repo=github.com/caddy-dns/$name
     caddy_version=$(docker run -it --rm bebound/caddy_builder ./caddy version | cut -d ' ' -f 1)
@@ -29,5 +29,5 @@ func build_dns(){
 for i in "alidns" "azure" "cloudflare" "digitalocean" "dnspd" "duckdns" "dynv6" "gandi" "googleclouddns" "hetzner" "ionos" "leaseweb" "loopia" "metaname" "namecheap" "namedotcom" "openstack-designate" "powerdns" "route53" "transip" "vercel" "vultr"
 do
     echo build $name
-    build $i
+    build_with_dns $i
 done
