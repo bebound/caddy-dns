@@ -7,6 +7,7 @@ build_with_dns(){
     name=$1
     repo=github.com/caddy-dns/$name
     caddy_version=$(docker run -it --rm bebound/caddy_builder ./caddy version | cut -d ' ' -f 1 | xargs)
+    echo latest caddy version $caddy_version
     if [ ! -d $name ]; then
         git clone https://$repo
     fi
@@ -25,9 +26,10 @@ build_with_dns(){
     fi
 }
 
-#  docker run -it -p 80:80  --rm caddy ./caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
 for i in "alidns" "azure" "cloudflare" "digitalocean" "dnspod" "duckdns" "dynv6" "gandi" "googleclouddns" "hetzner" "ionos" "leaseweb" "loopia" "metaname" "namecheap" "namedotcom" "openstack-designate" "powerdns" "route53" "transip" "vercel" "vultr"
 do
     echo build $name
     build_with_dns $i
 done
+
+#  docker run -it -p 80:80  --rm caddy ./caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
