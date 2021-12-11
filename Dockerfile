@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM bebound/caddy_builder as builder
+FROM bebound/caddy_builder as builder
 ARG DNS
 RUN xcaddy build --with $DNS
 
