@@ -1,0 +1,2 @@
+FROM --platform=$BUILDPLATFORM golang
+RUN go install github.com/caddyserver/xcaddy/cmd/xcaddy@latest
