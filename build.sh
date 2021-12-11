@@ -3,7 +3,7 @@
 PLATFORMS=linux/amd64
 docker build . -t bebound/xcaddy_builder --platform $PLATFORMS  -f Dockerfile_builder --push
 
-func build_with_dns(){
+build_with_dns(){
     name=$1
     repo=github.com/caddy-dns/$name
     caddy_version=$(docker run -it --rm bebound/caddy_builder ./caddy version | cut -d ' ' -f 1)
