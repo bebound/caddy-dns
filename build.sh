@@ -19,7 +19,7 @@ build_with_dns(){
     docker manifest inspect $final_tag &> /dev/null
     if [ $? -ne 0 ] || [ "$FORCE_PUSH" = "true" ]; then
         echo Building $final_tag
-        docker build . -t $final_tag -t $final_tag_no_version --platform $PLATFORMS -f Dockerfile --build-arg DNS=$repo --push
+        docker build . -t $final_tag -t $final_tag_no_version --platform $PLATFORMS -f Dockerfile --build-arg DNS="--with $repo" --push
     else
         echo "Already exists, skip build"
     fi

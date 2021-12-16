@@ -1,6 +1,6 @@
 FROM bebound/caddy_builder as builder
 ARG DNS
-RUN xcaddy build --with $DNS
+RUN xcaddy build $DNS
 
 FROM scratch
 WORKDIR /caddy/
