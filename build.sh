@@ -17,7 +17,7 @@ build_with_dns(){
     final_tag_no_version=bebound/caddy-$name
     echo Current valid version is $final_tag
     docker manifest inspect $final_tag &> /dev/null
-    if [ $? -ne 0 ]; then
+    if [ $? -ne 0 ] || [ "$FORCE_PUSH" = "true" ]; then
         echo Building $final_tag
         docker build . -t $final_tag -t $final_tag_no_version --platform $PLATFORMS -f Dockerfile --build-arg DNS=$repo --push
     else

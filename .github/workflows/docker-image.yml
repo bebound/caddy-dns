@@ -6,9 +6,13 @@ on:
   schedule:
     - cron: "0 5 * * *"
   workflow_dispatch:
-
+    inputs:
+      force_push:
+        description: 'Force push image'     
+        required: false
+        default: 'false'
+        
 jobs:
-
   build:
     runs-on: ubuntu-latest
     environment: build
@@ -32,3 +36,5 @@ jobs:
     - name: Build and Push Images
       run: |
         bash ./build.sh
+      env:
+        FORCE_PUSH: ${{ github.event.inputs.force_push }}
