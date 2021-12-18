@@ -6,7 +6,7 @@ build_with_all_dns(){
     dns_args=""
     for dns in $@
     do
-        dns_args+="--with github.com/caddy-dns/$name "
+        dns_args+="--with github.com/caddy-dns/$dns "
     done
     name=alldns
     version=$(date '+%Y.%m.%d')

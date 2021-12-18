@@ -13,6 +13,7 @@ build_with_dns(){
     cd $name
     version=$(git describe --abbrev=0 --tags)
     cd ../
+    # always build image if no version
     if [ "$version" = "" ]; then
         version=$(date '+%Y.%m.%d')
     fi
