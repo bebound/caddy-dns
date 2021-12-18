@@ -9,7 +9,7 @@ build_with_all_dns(){
         dns_args+="--with github.com/caddy-dns/$name "
     done
     name=alldns
-    version = $(date '+%Y.%m.%d')
+    version=$(date '+%Y.%m.%d')
     caddy_version=$(docker run --rm bebound/caddy_builder ./caddy version | cut -d ' ' -f 1 | xargs)
     final_tag=bebound/caddy-$name:$version"_"$caddy_version
     final_tag_no_version=bebound/caddy-$name

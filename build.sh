@@ -13,6 +13,9 @@ build_with_dns(){
     cd $name
     version=$(git describe --abbrev=0 --tags)
     cd ../
+    if [ "$version" = "" ]; then
+        version=$(date '+%Y.%m.%d')
+    fi
     final_tag=bebound/caddy-$name:$version"_"$caddy_version
     final_tag_no_version=bebound/caddy-$name
     echo Current valid version is $final_tag
