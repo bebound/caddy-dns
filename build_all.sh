@@ -18,4 +18,4 @@ build_with_all_dns(){
     docker build . -t $final_tag -t $final_tag_no_version --platform $PLATFORMS -f Dockerfile --build-arg DNS="$dns_args" --push
 }
 
-build_with_all_dns "alidns" "azure" "cloudflare" "digitalocean" "dnspod" "duckdns" "dynv6" "gandi" "googleclouddns" "hetzner" "ionos" "leaseweb" "loopia" "metaname" "namecheap" "namedotcom" "openstack-designate" "powerdns" "route53" "transip" "vercel" "vultr"
+build_with_all_dns "alidns" "azure" "cloudflare" "digitalocean" "dnspod" "duckdns" "gandi" "googleclouddns" "hetzner" "ionos" "leaseweb" "loopia" "metaname" "namecheap" "namedotcom" "openstack-designate" "powerdns" "route53" "transip" "vercel" "vultr"
