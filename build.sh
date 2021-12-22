@@ -29,7 +29,7 @@ build_with_dns(){
     fi
 }
 
-for i in "alidns" "azure" "cloudflare" "digitalocean" "dnspod" "duckdns" "gandi" "googleclouddns" "hetzner" "ionos" "leaseweb" "loopia" "metaname" "namecheap" "namedotcom" "openstack-designate" "powerdns" "route53" "transip" "vercel" "vultr"
+for i in "alidns" "azure" "cloudflare" "digitalocean" "dnspod" "duckdns" "gandi" "googleclouddns" "hetzner" "ionos" "leaseweb" "loopia" "metaname" "namecheap" "namedotcom" "openstack-designate" "powerdns" "route53" "vercel" "vultr"
 do
     echo build $name
     build_with_dns $i
